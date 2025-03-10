@@ -128,30 +128,19 @@ const generateOTP = () => {
 };
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASS
+    pass: process.env.EMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: true
-  },
-  maxConnections: 5,
-  maxMessages: 10,
-  pool: true,
-  rateDelta: 1000,
-  rateLimit: 5
 });
 
 // Verify transporter connection
 transporter.verify(function(error, success) {
   if (error) {
-    console.error('SMTP Connection Error:', error);
+    console.error('SMTP Connection Error:@@@@@@@@@@@@@@@@@@@@@@@@@@@', error);
   } else {
-    console.log('SMTP Server is ready to send emails');
+    console.log('SMTP Server is ready to send emails@@@@@@@@@@@@@@@@@@@@@@@');
   }
 });
 const forgotPassword = async (req, res) => {
@@ -168,10 +157,10 @@ const forgotPassword = async (req, res) => {
       return res.json({ success: false, message: "User not found" });
     }
 
-    const otp = String(generateOTP());
+    const otp = generateOTP();
     
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: "patelankurv2005@gmail.com",
       to: email,
       subject: 'Password Reset OTP',
       html: `
