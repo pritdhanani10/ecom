@@ -168,7 +168,7 @@ const forgotPassword = async (req, res) => {
       return res.json({ success: false, message: "User not found" });
     }
 
-    const otp = generateOTP();
+    const otp = String(generateOTP());
     
     const mailOptions = {
       from: process.env.EMAIL,

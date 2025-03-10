@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema(
     cartData: { type: Object, default: {} },
     resetOTP: { type: String },
     otpExpiry: { type: Date },
+    resetOTP: { type: String }, 
+    otpExpiry: { type: Number },
   },
   { minimize: false }
 );
