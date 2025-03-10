@@ -2,8 +2,10 @@ import userModel from "../models/userModel.js";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
+import dotenv from 'dotenv'
 import nodemailer from "nodemailer";
+
+dotenv.config();
 
 // Function for creating token
 const createToken = (id) => {
@@ -135,7 +137,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Verify transporter connection
 transporter.verify(function(error, success) {
   if (error) {
     console.error('SMTP Connection Error:@@@@@@@@@@@@@@@@@@@@@@@@@@@', error);
